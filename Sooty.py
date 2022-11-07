@@ -287,7 +287,7 @@ def urlscanio():
         'API-Key': configvars.data['URLSCAN_IO_KEY'],
     }
 
-    response = requests.post('https://urlscan.io/api/v1/scan/', headers=headers, data='{"url": "%s", "%s": "on"}' % (url_to_scan, scan_type)).json()
+    response = requests.post('https://urlscan.io/api/v1/scan/', headers=headers, data='{"url": "%s", "visibility": "%s"}' % (url_to_scan, scan_type)).json()
 
     if 'successful' in response['message']:
         print('\nNow scanning %s. Check back in around 1 minute.' % url_to_scan)
